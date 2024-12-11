@@ -5,18 +5,18 @@ public class Sorting {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Nhập số lượng sinh viên
+        // Enter the number of students
         System.out.print("Enter the number of students: ");
         int n = scanner.nextInt();
 
-        // Tạo danh sách sinh viên ngẫu nhiên
+        // Generate a random list of students
         Student[] students = generateRandomStudents(n);
 
-        // So sánh thời gian chạy của các thuật toán sắp xếp
+        // Compare the running time of sorting algorithms
         compareSortingAlgorithms(students);
     }
 
-    // Hàm tạo danh sách sinh viên ngẫu nhiên
+    // Function to generate a random list of students
     public static Student[] generateRandomStudents(int n) {
         Student[] students = new Student[n];
         Random random = new Random();
@@ -31,25 +31,25 @@ public class Sorting {
         return students;
     }
 
-    // Hàm so sánh thời gian chạy của các thuật toán sắp xếp
+    // Function to compare the running time of sorting algorithms
     public static void compareSortingAlgorithms(Student[] originalArray) {
         Student[] bubbleSortArray = Arrays.copyOf(originalArray, originalArray.length);
         Student[] mergeSortArray = Arrays.copyOf(originalArray, originalArray.length);
         Student[] quickSortArray = Arrays.copyOf(originalArray, originalArray.length);
 
-        // Thực hiện sắp xếp Bubble Sort và đo thời gian
+        // Perform Bubble Sort and measure the time
         long startTime = System.nanoTime();
         bubbleSort(bubbleSortArray);
         long endTime = System.nanoTime();
         System.out.println("Bubble Sort Time: " + (endTime - startTime) + " nanoseconds");
 
-        // Thực hiện sắp xếp Merge Sort và đo thời gian
+        // Perform Merge Sort and measure the time
         startTime = System.nanoTime();
         mergeSort(mergeSortArray, 0, mergeSortArray.length - 1);
         endTime = System.nanoTime();
         System.out.println("Merge Sort Time: " + (endTime - startTime) + " nanoseconds");
 
-        // Thực hiện sắp xếp Quick Sort và đo thời gian
+        // Perform Quick Sort and measure the time
         startTime = System.nanoTime();
         quickSort(quickSortArray, 0, quickSortArray.length - 1, true);
         endTime = System.nanoTime();
